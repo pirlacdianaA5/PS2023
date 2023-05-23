@@ -117,6 +117,25 @@ t_conf_interval(49, 13.5 , 1.25, 0.05)
    return(interval)
  }
  selectionmean("history.txt",0.05)
+  #III.5
+ x <- c(12, 11, 12, 10, 11, 12, 13, 12, 11, 11, 13, 14, 10)
+ samplemean <- mean(x)
+ s <- sd(x)
+ n <- length(x)
+ 
+ critical_t1<- qt(0.05, n-1)
+ critical_t2 <- qt(0.025, n-1)
+ critical_t3 <- qt(0.005, n-1)
+ 
+ # intervalele de incredere pentru media populației la nivelurile de semnificație
+ alfa1 <- smplemean + critical_t1*(s/sqrt(n))
+ alfa2 <- samplemean + critical_t2*(s/sqrt(n))
+ alfa3 <- samplemean+ critical_t3*(s/sqrt(n))
+ 
+ # afișam intervalele de incredere
+ cat("Intervalul de incredere de 90% pentru media populatiei este [", alfa1[1], ",", alfa1[2], "]\n")
+ cat("Intervalul de incredere de 95% pentru media populatiei este [", alfa2[1], ",", alfa2[2], "]\n")
+ cat("Intervalul de incredere de 99% pentru media populatiei este [", alfa3[1], ",", alfa3[2], "]\n")
  
  #Testarea ipotezelor statistice
  #IV.Testul z asupra proportiilor
