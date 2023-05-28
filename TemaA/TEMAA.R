@@ -25,17 +25,14 @@ sum(P_X_impar)
 P_X_mare_sau_egala_cu_4
 P_X_mica_sau_egala_cu_20
 
-#c)  PROBLEME!!!!!!!!!
-# Parametrii
-lambda <- 2  # Parametrul lambda pentru distributia Poisson
+#c) 
 
+lambda <- 2  # Parametrul lambda pentru distributia Poisson
 # Determinarea celei mai mici valori k0 pentru care P(Y >= k0) < 10^(-7)
 k0 <- 0  # Valoarea initiala pentru k0
 while (ppois(k0, lambda) >= 10^(-7)) {
   k0 <- k0 + 1
 }
-
-# Afisarea rezultatului
 print(paste("Cea mai mica valoare a lui k0:", k0))
 
 #A2
