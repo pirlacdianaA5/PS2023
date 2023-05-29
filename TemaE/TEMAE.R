@@ -47,20 +47,20 @@ test_proportion =function(alfa, n, succese, p0, tip_ipoteza) {
   # În funcție de tipul de ipoteză
   if (tip_ipoteza == "r") {
     criticalz = qnorm(1 - alfa, 0, 1)
-    if (zscore < criticalz)
+    if (zscore <= criticalz)
       print("HO nu se respinge")
     else 
       print("HO  se respinge")
   }
   if (tip_ipoteza == "l") {
     criticalz = qnorm(alfa, 0, 1)
-    if (zscore > criticalz)
+    if (zscore >= criticalz)
       print("HO nu se respinge")
     else 
       print("HO  se respinge")
   }
   if (tip_ipoteza == "s") {
-    criticalz = qnorm(alfa, 0, 1)
+    criticalz = qnorm(1-alfa/2, 0, 1)
     if (abs(zscore) <= criticalz)
       print("HO nu respinge")
     else 
@@ -72,8 +72,8 @@ test_proportion =function(alfa, n, succese, p0, tip_ipoteza) {
 }
 
 # Test la nivel de semnificație de 1%
-test_proportion(0.01, 153, 17, 0.12,"l")
+test_proportion(0.01, 153, 17, 0.12,"r")
 
 # Test la nivel de semnificație de 5%
-test_proportion(0.05, 153, 17, 0.12,"l")
+test_proportion(0.05, 153, 17, 0.12,"r")
 
